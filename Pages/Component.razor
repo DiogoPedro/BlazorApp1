@@ -1,0 +1,33 @@
+﻿@page "/c"
+
+<PageTitle>Cadastro</PageTitle>
+
+<div id="boxRegister">
+    <form>
+        <h2 class="h2" id="titleBoxRegister">
+            Inicie seu cadastro inserindo seu nome completo e seu e-mail.
+        </h2>
+        <div>
+            <label for="nameUser" class="form-label">Nome Completo</label>
+            <input type="text" maxlength="45" class="form-control" id="nameUser" aria-describedby="nome" placeholder="Joao Braga da Silva">
+            <label for="emailRegister" class="form-label">Email</label>
+            <input type="email" maxlength="35" class="form-control" id="emailRegister" aria-describedby="email" placeholder="joao.silva23@gmail.com">
+        </div>
+    </form>
+    <p role="status">@ValidateEmail()</p>
+    <button class="btn btn-primary" @onclick=MudarNome>Cadastrar</button>
+</div>
+
+@code {
+    private string name = "Diogo";
+
+    private int ValidateEmail()
+    {
+        return name.Length;
+    }
+
+    private void MudarNome()
+    {
+        name = "Dio";
+    }
+}

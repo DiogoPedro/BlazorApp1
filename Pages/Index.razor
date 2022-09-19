@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<PageTitle>Inicial</PageTitle>
+
+<div id="boxRegister">
+    <form>
+        <h2 class="h2" id="titleBoxRegister">
+            Inicie seu cadastro inserindo seu nome completo e seu e-mail.
+        </h2>
+        <div>
+            <label for="nameFull" class="form-label">Nome Completo</label>
+            <input type="text" maxlength="45" @bind-value=@nome @bind-value:event="oninput" class="form-control" id="nameFull" aria-describedby="nome" placeholder="Joao Braga da Silva">
+            <p>
+                @nome
+            </p>
+            <label for="emailRegister" class="form-label">Email</label>
+            <input type="email" maxlength="35" class="form-control" id="emailRegister" aria-describedby="email" placeholder="joao.silva23@gmail.com">
+        </div>
+    </form>
+        <button class="btn btn-primary" @onclick=MudarNome>Cadastrar</button>
+    @if (Validar())
+    {
+            <p>valido</p>
+        } else {
+            <p>invalido</p>
+        }
+</div>
+
+@code {
+    private string name = "diogo";
+    private string nome;
+  
+    private Boolean Validar() 
+    {
+        if ((!Regex.Match(name, "^[A-Z][a-zA-Z]*$").Success) ^ (name.Length > 45))
+        {
+            return false;
+        } else 
+        {
+            return true;
+        }
+    }
+
+    private void MudarNome()
+    {
+        name = "Diogo Pedro";
+    }
+}

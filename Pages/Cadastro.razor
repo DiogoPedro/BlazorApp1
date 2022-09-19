@@ -1,0 +1,110 @@
+﻿@page "/cadastrar"
+
+<h2 class="h2">Cadastro a conta é:</h2>
+
+<div id="boxRegister">
+    <form>
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioCPF">
+        <label class="form-check-label" for="radioCPF">Pessoa física</label>
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioCNPJ">
+        <label class="form-check-label" for="radioCNPJ">Pessoa jurídica</label>
+        <br />
+        <label for="nameFull" class="form-label">Nome:*</label>
+        <input type="text" maxlength="45" class="form-control" id="nameFull" aria-describedby="nome" placeholder="Joao Braga da Silva" required>
+        <label for="emailRegister" class="form-label">E-mail:*</label>
+        <input type="email" class="form-control" id="emailRegister" aria-describedby="email" placeholder="joao.silva23@gmail.com" required>
+        <label for="inputPassword" class="form-label">Senha:*</label>
+        <input type="password" class="form-control" id="inputPassword" aria-describedby="senha" required>
+        <label for="passwordConfirm" class="form-label">Confirme sua senha:*</label>
+        <input type="password" class="form-control" id="passwordConfirm" aria-describedby="confirmacao de senha" required>
+        <label for="inputCnpj" class="form-label">CNPJ:*</label>
+        <input type="number" class="form-control" id="inputCnpj" aria-describedby="CNPJ" placeholder="XX.XXX.XXX/YYYY-ZZ" required>
+        <label for="inputCpf" class="form-label">CPF:*</label>
+        <input type="number" class="form-control" id="inputCpf" aria-describedby="CPF" placeholder="XXX.XXX.XXX/XX" required>
+        <label for="inputDateCnpj" class="form-label">Data de Abertura:*</label>
+        <input type="date" class="form-control" id="inputDateCnpj" aria-describedby="data de abertura CNPJ" placeholder="31/12/1999" required>
+        <label for="inputPhone" class="form-label">Celular:*</label>
+        <input type="tel" pattern="[0-9]{9}" class="form-control" id="inputPhone" aria-describedby="telefone" placeholder="940028922" required>
+        <label for="inputAddress" class="form-label">Logradouro:*</label>
+        <input type="text" class="form-control" id="inputAddress" aria-describedby="endereco" placeholder="Av. Joao Carlos Pereira Silva" required>
+        <label for="inputHomeNumber" class="form-label">Nº:*</label>
+        <input type="number" class="form-control" id="inputHomeNumber" aria-describedby="numero da residencia" placeholder="123" required>
+        <label for="inputComplement" class="form-label">Complemento:</label>
+        <input type="text" class="form-control" id="inputComplement" aria-describedby="complemento" placeholder="Ao lado do posto de gasolina Real">
+        <label for="inputCity" class="form-label">Cidade:*</label>
+        <input type="text" class="form-control" id="inputCity" aria-describedby="cidade" placeholder="Recife" required>
+        <label for="inputState" class="form-label">Estado:*</label>
+        <input type="text" class="form-control" id="inputState" aria-describedby="estado" placeholder="Pernambuco" required>
+        <label for="inputZip" class="form-label">CEP:*</label>
+        <input type="number" class="form-control" id="inputZip" aria-describedby="cep" placeholder="54000-000" required>
+        <label for="cnpj" class="form-label">País:*</label>
+        <select id="inputCountry" class="form-select">
+            <option value="brazil">Brasil</option>
+            <option value="unitedStates">United States</option>
+            <option value="chile">Chile</option>
+            </select>
+        <button class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+@code {
+
+    private Boolean validateName(string name) //Valido para Estado/Cidade/Nome
+    {
+        if ((!Regex.Match(name, "^[A-Z][a-zA-Z]*$").Success) ^ (name.Length > 45))
+        {
+            return false;
+        } else 
+            return true;
+    }
+
+    private Boolean validateEmail(string email) //Valido para Estado/Cidade/Nome
+    {
+        if ((!Regex.Match(email, "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$").Success) ^ (email.Length > 35))
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private Boolean validatePhone(long value)
+    {
+        if (((9 * Math.Pow(10, 8) < value)) ^ (value < Math.Pow(10, 9)))
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private Boolean validateCPF(long value)
+    {
+        if (((Math.Pow(10, 10) < value)) ^ (value < Math.Pow(10, 11)))
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private Boolean validateCNPJ(long value)
+    {
+        if (((Math.Pow(10, 13) < value)) ^ (value < Math.Pow(10, 14)))
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private Boolean validateHomeNumber(long value)
+    {
+        if (value < Math.Pow(10, 5))
+        {
+            return false;
+        }
+        else
+            return true;
+    }
+
+}
