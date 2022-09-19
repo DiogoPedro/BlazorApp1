@@ -12,72 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -804154890,
-        "Kind": "Components.Component",
-        "Name": "BlazorApp1.Pages.CriarConta",
-        "AssemblyName": "BlazorApp1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "CriarConta"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BlazorApp1.Pages.CriarConta"
-        }
-      },
-      {
-        "HashCode": 1320668100,
-        "Kind": "Components.Component",
-        "Name": "BlazorApp1.Pages.CriarConta",
-        "AssemblyName": "BlazorApp1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "BlazorApp1.Pages.CriarConta"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BlazorApp1.Pages.CriarConta",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -569732050,
-        "Kind": "Components.Component",
-        "Name": "BlazorApp1.Pages.Cadastro",
-        "AssemblyName": "BlazorApp1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Cadastro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BlazorApp1.Pages.Cadastro"
-        }
-      },
-      {
-        "HashCode": -1770947816,
-        "Kind": "Components.Component",
-        "Name": "BlazorApp1.Pages.Cadastro",
-        "AssemblyName": "BlazorApp1",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "BlazorApp1.Pages.Cadastro"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "BlazorApp1.Pages.Cadastro",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -408802477,
         "Kind": "Components.Component",
         "Name": "BlazorApp1.Pages.Component",
@@ -206,6 +140,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "BlazorApp1.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -569732050,
+        "Kind": "Components.Component",
+        "Name": "BlazorApp1.Pages.Cadastro",
+        "AssemblyName": "BlazorApp1",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Cadastro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorApp1.Pages.Cadastro"
+        }
+      },
+      {
+        "HashCode": -1770947816,
+        "Kind": "Components.Component",
+        "Name": "BlazorApp1.Pages.Cadastro",
+        "AssemblyName": "BlazorApp1",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazorApp1.Pages.Cadastro"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "BlazorApp1.Pages.Cadastro",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
