@@ -1,0 +1,23 @@
+<p class="h2">Eu sou o primeiro componente de @Name, cujo a idade é @Idade, Hello World!</p>
+<p class="h4">Ele possui @Money, @Complemento</p>
+
+@code
+{
+    [Parameter]
+    public string Name { get; set; } = "";
+    [Parameter]
+    public int Idade { get; set; }
+    [Parameter]
+    public int Money { get; set; }
+    public string Complemento { get; set; } = "";
+    public int GainMoney(int value)
+    {
+        this.Complemento = (this.Money < 5000) ? "isso é pouco dinheiros" : "isso começou a fica interessante";
+        return value + this.Money;
+    }
+
+    public void MudarNome(string ChangeName){
+        this.Complemento = ChangeName;
+        StateHasChanged();
+    }
+}

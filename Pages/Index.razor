@@ -1,48 +1,27 @@
 ﻿@page "/"
 
-<PageTitle>Inicial</PageTitle>
-
-<div id="boxRegister">
-    <form>
-        <h2 class="h2" id="titleBoxRegister">
-            Inicie seu cadastro inserindo seu nome completo e seu e-mail.
-        </h2>
-        <div>
-            <label for="nameFull" class="form-label">Nome Completo</label>
-            <input type="text" maxlength="45" @bind-value=@nome @bind-value:event="oninput" class="form-control" id="nameFull" aria-describedby="nome" placeholder="Joao Braga da Silva">
-            <p>
-                @nome
-            </p>
-            <label for="emailRegister" class="form-label">Email</label>
-            <input type="email" maxlength="35" class="form-control" id="emailRegister" aria-describedby="email" placeholder="joao.silva23@gmail.com">
-        </div>
-    </form>
-        <button class="btn btn-primary" @onclick=MudarNome>Cadastrar</button>
-    @if (Validar())
-    {
-            <p>valido</p>
-        } else {
-            <p>invalido</p>
-        }
-</div>
+<PageTitle>Tela do Primeiro Componente a Seguir</PageTitle>
+<FirstComponent @ref="_firstComponent" Name=@name Idade=@idade Money=@money></FirstComponent>
+<br>
+<br>
+<button class="btn btn-primary" @onclick=Teste>Aumenta dinheiro da minha carteira plz!</button>
+<button class="btn btn-primary" @onclick=NovoNome>Troque de nome, para Diogo Pedro</button>
 
 @code {
-    private string name = "diogo";
-    private string nome = "pedro";
-  
-    private Boolean Validar() 
+    private FirstComponent _firstComponent;
+    private string name = "Diogo";
+    private int idade = 23;
+    private int money = 100;
+ 
+    public void Teste()
     {
-        if ((!Regex.Match(name, "^[A-Z][a-zA-Z]*$").Success) ^ (name.Length > 45))
-        {
-            return false;
-        } else 
-        {
-            return true;
-        }
+        this.name = "Pedro";
+        this.money = _firstComponent.GainMoney(money + 150);
+        //StateHasChanged();
     }
 
-    private void MudarNome()
+    public void NovoNome()
     {
-        name = "Diogo Pedro";
+        this._firstComponent.MudarNome("Diogo Pedro");
     }
 }
