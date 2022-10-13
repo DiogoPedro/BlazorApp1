@@ -13,6 +13,7 @@
 <button @onclick="Square">Square</button>
 <button @onclick="ChangeColor">Tentativa</button>
 
+<p>@value</p>
 <br><br>
 <p class="h4">@data</p>
 <p class="h4">@data.tagClass</p>
@@ -29,7 +30,7 @@
   public async void MostrarTela()
   {
     //await js.InvokeAsync<Object>("onload", "Ola");
-    await js.InvokeVoidAsync("alertAadsa", "Mensagem");
+    await js.InvokeVoidAsync("teste");
     //await js.InvokeAsync<bool>("showMessageConsole", "Working");
   }
   public async Task Square()
@@ -40,6 +41,7 @@
   }
   public async void ChangeColor()
   {
+    
     await js.InvokeVoidAsync("changeName", "nome"); 
   }
 }
