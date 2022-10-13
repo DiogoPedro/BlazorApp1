@@ -1,0 +1,45 @@
+@page "/javascript"
+
+@using Microsoft.JSInterop
+@inject IJSRuntime js;
+@* @section Scripts {
+  <script src="~/Pages/ComponentJavascript.razor.js"></script>
+} *@
+
+<p class="h2 box" id="box">Teste de utilização de JavaScript</p> <br>
+<p class="box" id="box">Teste de utilização de JavaScript</p>
+
+<button @onclick="MostrarTela">MostrarTela</button>
+<button @onclick="Square">Square</button>
+<button @onclick="ChangeColor">Tentativa</button>
+
+<br><br>
+<p class="h4">@data</p>
+<p class="h4">@data.tagClass</p>
+<p class="h4">@data.Color</p>
+
+@code
+{
+  public class Change{
+    public string tagClass { get; set; }
+    public string Color { get; set; }
+  }
+  public int value;
+  public Change data = new Change() {tagClass = "testando", Color = "red"};
+  public async void MostrarTela()
+  {
+    //await js.InvokeAsync<Object>("onload", "Ola");
+    await js.InvokeVoidAsync("alertAadsa", "Mensagem");
+    //await js.InvokeAsync<bool>("showMessageConsole", "Working");
+  }
+  public async Task Square()
+  {
+    //await js.InvokeAsync<bool>("showMessageConsole", "Working");
+    //await js.InvokeVoidAsync("alert", "Mensagem");
+    value += await js.InvokeAsync<int>("squareJS", 9);
+  }
+  public async void ChangeColor()
+  {
+    await js.InvokeVoidAsync("changeName", "nome"); 
+  }
+}

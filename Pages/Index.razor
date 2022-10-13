@@ -2,10 +2,24 @@
 
 <PageTitle>Tela do Primeiro Componente a Seguir</PageTitle>
 <FirstComponent @ref="_firstComponent" Name=@name Idade=@idade Money=@money></FirstComponent>
-<br>
-<br>
+<br><br>
+
 <button class="btn btn-primary" @onclick=Teste>Aumenta dinheiro da minha carteira plz!</button>
+
+<br><br>
+
 <button class="btn btn-primary" @onclick=NovoNome>Troque de nome, para Diogo Pedro</button>
+
+<br> <br>
+
+<NavLink class="nav-link" href="cadastrar">
+    Clica aqui para a página de cadastro Navlink
+</NavLink>
+<br><br>
+
+<a class="nav-link" href="/cadastrar">
+    Clica aqui para a página de cadastro com Tag a
+</a>
 
 @code {
     private FirstComponent _firstComponent;

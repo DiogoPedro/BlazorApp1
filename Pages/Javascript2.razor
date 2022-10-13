@@ -1,0 +1,39 @@
+@page "/javascript2"
+
+@using Microsoft.JSInterop
+@inject IJSRuntime js;
+@* @section Scripts {
+  <script src="~/Pages/ComponentJavascript.razor.js"></script>
+} *@
+
+<p class="h2">Teste de utilização de JavaScript</p> <br>
+<button @onclick="MostrarTela">MostrarTela</button>
+<button @onclick="Alert">Alert</button>
+<button @onclick="Tentativa">Tentativa</button>
+
+<br><br>
+<p class="valor dado: ">@value</p>
+
+@code
+{
+  public int value;
+  public async void MostrarTela()
+  {
+    //await js.InvokeAsync<Object>("onload", "Ola");
+    //await js.InvokeVoidAsync("alert", "Mensagem");
+    //await js.InvokeAsync<bool>("showMessageConsole", "Working");
+      await js.InvokeVoidAsync("alert", "teste");
+  }
+
+  public async Task Alert()
+  {
+    //await js.InvokeAsync<bool>("showMessageConsole", "Working");
+    //await js.InvokeVoidAsync("alert", "Mensagem");
+    var teste = await js.InvokeAsync<int>("squareJS", 9);
+  }
+
+  public async void Tentativa()
+  {
+    await js.InvokeVoidAsync("alert", "Usuário não cadastrado.");
+  }
+}
